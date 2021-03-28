@@ -1,9 +1,9 @@
 Package: rgeoprofile
 Type: Package
 Title: Geographic Profiling Methods for Serial Crime Analysis
-Version: 0.2.0
+Version: 0.2.1
 Author: Jamie Spaulding and Keith Morris
-Maintainer: Jamie Spaulding <jspauldi@mix.wvu.edu>
+Maintainer: Jamie Spaulding <jspaulding02@hamline.edu>
 Description: An implementation of functions for the analysis of serial crime 
     incidents. The package implements algorithms for the geographical profiling 
     of serial incidents in attempt to prioritize the area in which the anchor 
@@ -20,10 +20,10 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 Imports: aspace, geosphere, grDevices, leaflet, pals, RANN, raster, sp,
-        spatstat, splancs, utils
+        spatstat.geom, splancs, utils
 Suggests: htmlwidgets, leafsync, knitr, rgdal, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2020-05-28 17:51:48 UTC; jsspa
+Packaged: 2021-03-24 19:50:45 UTC; jsspa
 Repository: CRAN
-Date/Publication: 2020-05-28 19:20:06 UTC
+Date/Publication: 2021-03-28 14:40:02 UTC

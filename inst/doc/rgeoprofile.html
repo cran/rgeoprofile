@@ -279,13 +279,13 @@ document.addEventListener('DOMContentLoaded', function(e) {
   function tryEval(code) {
     var result = null;
     try {
-      result = eval(code);
+      result = eval("(" + code + ")");
     } catch(error) {
       if (!error instanceof SyntaxError) {
         throw error;
       }
       try {
-        result = eval("(" + code + ")");
+        result = eval(code);
       } catch(e) {
         if (e instanceof SyntaxError) {
           throw error;
@@ -5782,9 +5782,9 @@ d_{p}       &amp;= \text{distance of peak likelihood (Cutoff Value)} = 0.4
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>circle_center &lt;-<span class="st"> </span><span class="cf">function</span>(lat, lon){</span>
 <span id="cb16-2"><a href="#cb16-2"></a>  n &lt;-<span class="st"> </span><span class="kw">length</span>(lat)</span>
 <span id="cb16-3"><a href="#cb16-3"></a>  points &lt;-<span class="st"> </span><span class="kw">data.frame</span>(lat, lon)</span>
-<span id="cb16-4"><a href="#cb16-4"></a>  dat &lt;-<span class="st"> </span>spatstat<span class="op">::</span><span class="kw">ppp</span>(lon, lat, <span class="dt">window =</span> spatstat<span class="op">::</span><span class="kw">owin</span>(<span class="dt">xrange =</span> <span class="kw">c</span>(<span class="kw">min</span>(lon), <span class="kw">max</span>(lon)),</span>
+<span id="cb16-4"><a href="#cb16-4"></a>  dat &lt;-<span class="st"> </span>spatstat.geom<span class="op">::</span><span class="kw">ppp</span>(lon, lat, <span class="dt">window =</span> spatstat.geom<span class="op">::</span><span class="kw">owin</span>(<span class="dt">xrange =</span> <span class="kw">c</span>(<span class="kw">min</span>(lon), <span class="kw">max</span>(lon)),</span>
 <span id="cb16-5"><a href="#cb16-5"></a>                                     <span class="dt">yrange =</span> <span class="kw">c</span>(<span class="kw">min</span>(lat), <span class="kw">max</span>(lat))))</span>
-<span id="cb16-6"><a href="#cb16-6"></a>  nndists &lt;-<span class="st"> </span>spatstat<span class="op">::</span><span class="kw">nndist.ppp</span>(dat, <span class="dt">k =</span> n<span class="dv">-1</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  nndists &lt;-<span class="st"> </span>spatstat.geom<span class="op">::</span><span class="kw">nndist.ppp</span>(dat, <span class="dt">k =</span> n<span class="dv">-1</span>)</span>
 <span id="cb16-7"><a href="#cb16-7"></a>  fncases &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">grepl</span>(<span class="kw">max</span>(nndists), nndists))</span>
 <span id="cb16-8"><a href="#cb16-8"></a>  xi &lt;-<span class="st"> </span>points[fncases[<span class="dv">1</span>],]</span>
 <span id="cb16-9"><a href="#cb16-9"></a>  xj &lt;-<span class="st"> </span>points[fncases[<span class="dv">2</span>],]</span>
